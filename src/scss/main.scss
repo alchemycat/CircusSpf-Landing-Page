@@ -1,0 +1,49 @@
+// базовые подключения
+@import "./vendor/normalize";
+@import "./settings";
+@import "vars";
+@import "mixins";
+@import "fonts";
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100%;
+}
+
+.site-container {
+  height: 100%;
+}
+
+.main {
+  height: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
+.test {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+  &__block {
+    font-size: 50px;
+    font-weight: bold;
+    padding: 50px;
+    background-color: aquamarine;
+    border: 20px solid tomato;
+  }
+}
+
+// подключения компонентов страницы
+@import "./components/header";
+
+@import "./media";
