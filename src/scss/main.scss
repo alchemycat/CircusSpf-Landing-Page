@@ -28,23 +28,22 @@ h1 {
   margin: 0 auto;
 }
 
-.test {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-  }
-  &__block {
-    font-size: 50px;
-    font-weight: bold;
-    padding: 50px;
-    background-color: aquamarine;
-    border: 20px solid tomato;
-  }
+.title {
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 86px;
+}
+
+.text_bold {
+  font-weight: 700;
+}
+
+.text_color {
+  color: $violet;
+}
+
+.fz-48 {
+  font-size: 48px;
 }
 
 // подключения компонентов страницы
