@@ -1,13 +1,17 @@
 // базовые подключения
-@import "./vendor/normalize";
-@import "./settings";
-@import "vars";
-@import "mixins";
-@import "fonts";
+@import './vendor/normalize.css';
+@import './settings.scss';
+@import 'vars.scss';
+@import 'mixins.scss';
+@import './fonts.scss';
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Manrope', sans-serif;
   height: 100%;
+}
+
+h1 {
+  font-weight: 400;
 }
 
 .site-container {
@@ -19,7 +23,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1270px;
   padding: 0px 15px;
   margin: 0 auto;
 }
@@ -44,6 +48,7 @@ body {
 }
 
 // подключения компонентов страницы
-@import "./components/header";
+@import './components/header';
+@import './components/intro';
 
-@import "./media";
+@import './media';

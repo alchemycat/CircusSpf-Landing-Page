@@ -1,36 +1,36 @@
-const { src, dest, series, watch } = require("gulp");
-const autoprefixer = require("gulp-autoprefixer");
-const cleanCSS = require("gulp-clean-css");
-const del = require("del");
-const browserSync = require("browser-sync").create();
-const sass = require("sass");
-const gulpSass = require("gulp-sass");
-const svgSprite = require("gulp-svg-sprite");
-const svgmin = require("gulp-svgmin");
-const cheerio = require("gulp-cheerio");
-const replace = require("gulp-replace");
-const fileInclude = require("gulp-file-include");
-const rev = require("gulp-rev");
-const revRewrite = require("gulp-rev-rewrite");
-const revDel = require("gulp-rev-delete-original");
-const htmlmin = require("gulp-htmlmin");
-const gulpif = require("gulp-if");
-const notify = require("gulp-notify");
-const image = require("gulp-imagemin");
-const { readFileSync } = require("fs");
-const typograf = require("gulp-typograf");
-const webp = require("gulp-webp");
-const avif = require("gulp-avif");
+const { src, dest, series, watch } = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean-css');
+const del = require('del');
+const browserSync = require('browser-sync').create();
+const sass = require('sass');
+const gulpSass = require('gulp-sass');
+const svgSprite = require('gulp-svg-sprite');
+const svgmin = require('gulp-svgmin');
+const cheerio = require('gulp-cheerio');
+const replace = require('gulp-replace');
+const fileInclude = require('gulp-file-include');
+const rev = require('gulp-rev');
+const revRewrite = require('gulp-rev-rewrite');
+const revDel = require('gulp-rev-delete-original');
+const htmlmin = require('gulp-htmlmin');
+const gulpif = require('gulp-if');
+const notify = require('gulp-notify');
+const image = require('gulp-imagemin');
+const { readFileSync } = require('fs');
+const typograf = require('gulp-typograf');
+const webp = require('gulp-webp');
+const avif = require('gulp-avif');
 const mainSass = gulpSass(sass);
-const webpackStream = require("webpack-stream");
-const plumber = require("gulp-plumber");
-const path = require("path");
-const zip = require("gulp-zip");
+const webpackStream = require('webpack-stream');
+const plumber = require('gulp-plumber');
+const path = require('path');
+const zip = require('gulp-zip');
 const rootFolder = path.basename(path.resolve());
 
 // paths
-const srcFolder = "./src";
-const buildFolder = "./app";
+const srcFolder = './src';
+const buildFolder = './app';
 const paths = {
   srcSvg: `${srcFolder}/img/svg/**.svg`,
   srcImgFolder: `${srcFolder}/img`,
@@ -63,21 +63,21 @@ const svgSprites = () => {
     .pipe(
       cheerio({
         run: function ($) {
-          $("[fill]").removeAttr("fill");
-          $("[stroke]").removeAttr("stroke");
-          $("[style]").removeAttr("style");
+          $('[fill]').removeAttr('fill');
+          $('[stroke]').removeAttr('stroke');
+          $('[style]').removeAttr('style');
         },
         parserOptions: {
           xmlMode: true,
         },
       })
     )
-    .pipe(replace("&gt;", ">"))
+    .pipe(replace('&gt;', '>'))
     .pipe(
       svgSprite({
         mode: {
           stack: {
-            sprite: "../sprite.svg",
+            sprite: '../sprite.svg',
           },
         },
       })
@@ -91,8 +91,8 @@ const styles = () => {
     .pipe(
       plumber(
         notify.onError({
-          title: "SCSS",
-          message: "Error: <%= error.message %>",
+          title: 'SCSS',
+          message: 'Error: <%= error.message %>',
         })
       )
     )
@@ -101,7 +101,7 @@ const styles = () => {
       autoprefixer({
         cascade: false,
         grid: true,
-        overrideBrowserslist: ["last 5 versions"],
+        overrideBrowserslist: ['last 5 versions'],
       })
     )
     .pipe(
@@ -112,7 +112,7 @@ const styles = () => {
         })
       )
     )
-    .pipe(dest(paths.buildCssFolder, { sourcemaps: "." }))
+    .pipe(dest(paths.buildCssFolder, { sourcemaps: '.' }))
     .pipe(browserSync.stream());
 };
 
@@ -122,8 +122,8 @@ const stylesBackend = () => {
     .pipe(
       plumber(
         notify.onError({
-          title: "SCSS",
-          message: "Error: <%= error.message %>",
+          title: 'SCSS',
+          message: 'Error: <%= error.message %>',
         })
       )
     )
@@ -132,7 +132,7 @@ const stylesBackend = () => {
       autoprefixer({
         cascade: false,
         grid: true,
-        overrideBrowserslist: ["last 5 versions"],
+        overrideBrowserslist: ['last 5 versions'],
       })
     )
     .pipe(dest(paths.buildCssFolder))
@@ -145,16 +145,16 @@ const scripts = () => {
     .pipe(
       plumber(
         notify.onError({
-          title: "JS",
-          message: "Error: <%= error.message %>",
+          title: 'JS',
+          message: 'Error: <%= error.message %>',
         })
       )
     )
     .pipe(
       webpackStream({
-        mode: isProd ? "production" : "development",
+        mode: isProd ? 'production' : 'development',
         output: {
-          filename: "main.js",
+          filename: 'main.js',
         },
         module: {
           rules: [
@@ -162,13 +162,13 @@ const scripts = () => {
               test: /\.m?js$/,
               exclude: /node_modules/,
               use: {
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 options: {
                   presets: [
                     [
-                      "@babel/preset-env",
+                      '@babel/preset-env',
                       {
-                        targets: "defaults",
+                        targets: 'defaults',
                       },
                     ],
                   ],
@@ -177,12 +177,12 @@ const scripts = () => {
             },
           ],
         },
-        devtool: !isProd ? "source-map" : false,
+        devtool: !isProd ? 'source-map' : false,
       })
     )
-    .on("error", function (err) {
-      console.error("WEBPACK ERROR", err);
-      this.emit("end");
+    .on('error', function (err) {
+      console.error('WEBPACK ERROR', err);
+      this.emit('end');
     })
     .pipe(dest(paths.buildJsFolder))
     .pipe(browserSync.stream());
@@ -194,16 +194,16 @@ const scriptsBackend = () => {
     .pipe(
       plumber(
         notify.onError({
-          title: "JS",
-          message: "Error: <%= error.message %>",
+          title: 'JS',
+          message: 'Error: <%= error.message %>',
         })
       )
     )
     .pipe(
       webpackStream({
-        mode: "development",
+        mode: 'development',
         output: {
-          filename: "main.js",
+          filename: 'main.js',
         },
         module: {
           rules: [
@@ -211,13 +211,13 @@ const scriptsBackend = () => {
               test: /\.m?js$/,
               exclude: /node_modules/,
               use: {
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 options: {
                   presets: [
                     [
-                      "@babel/preset-env",
+                      '@babel/preset-env',
                       {
-                        targets: "defaults",
+                        targets: 'defaults',
                       },
                     ],
                   ],
@@ -229,9 +229,9 @@ const scriptsBackend = () => {
         devtool: false,
       })
     )
-    .on("error", function (err) {
-      console.error("WEBPACK ERROR", err);
-      this.emit("end");
+    .on('error', function (err) {
+      console.error('WEBPACK ERROR', err);
+      this.emit('end');
     })
     .pipe(dest(paths.buildJsFolder))
     .pipe(browserSync.stream());
@@ -276,13 +276,13 @@ const htmlInclude = () => {
   return src([`${srcFolder}/*.html`])
     .pipe(
       fileInclude({
-        prefix: "@",
-        basepath: "@file",
+        prefix: '@',
+        basepath: '@file',
       })
     )
     .pipe(
       typograf({
-        locale: ["ru", "en-US"],
+        locale: ['ru', 'en-US'],
       })
     )
     .pipe(dest(buildFolder))
@@ -314,12 +314,12 @@ const cache = () => {
     .pipe(rev())
     .pipe(revDel())
     .pipe(dest(buildFolder))
-    .pipe(rev.manifest("rev.json"))
+    .pipe(rev.manifest('rev.json'))
     .pipe(dest(buildFolder));
 };
 
 const rewrite = () => {
-  const manifest = readFileSync("app/rev.json");
+  const manifest = readFileSync('app/rev.json');
   src(`${paths.buildCssFolder}/*.css`)
     .pipe(
       revRewrite({
@@ -352,8 +352,8 @@ const zipFiles = (done) => {
     .pipe(
       plumber(
         notify.onError({
-          title: "ZIP",
-          message: "Error: <%= error.message %>",
+          title: 'ZIP',
+          message: 'Error: <%= error.message %>',
         })
       )
     )

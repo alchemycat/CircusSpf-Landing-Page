@@ -1,1 +1,4 @@
-// @include font-face("Muller", "../fonts/MullerRegular", 400, normal);
+@include font-face('Manrope', '../fonts/ManropeBold', 700, normal);
+@include font-face('Manrope', '../fonts/ManropeMedium', 500, normal);
+@include font-face('Manrope', '../fonts/ManropeRegular', 400, normal);
+@include font-face('Manrope', '../fonts/ManropeSemiBold', 600, normal);
