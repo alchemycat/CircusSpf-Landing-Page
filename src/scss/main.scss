@@ -42,13 +42,21 @@ h1 {
   color: $violet;
 }
 
+.text {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  text-align: justify;
+}
+
 .fz-48 {
   font-size: 48px;
 }
 
 // подключения компонентов страницы
+@import './components/button';
 @import './components/header';
 @import './components/intro';
-@import './components/button';
+@import './components/partner';
 
 @import './media';
