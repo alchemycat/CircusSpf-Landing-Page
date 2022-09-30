@@ -1,0 +1,23 @@
+.card {
+  &__caption {
+    font-size: 36px;
+    font-weight: 500;
+  }
+  &__description {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: justify;
+  }
+  &__button {
+    font-weight: 700;
+    font-size: 16px;
+    text-align: justify;
+    text-decoration-line: underline;
+    background-color: transparent;
+    color: #6360ef;
+  }
+  &__price {
+    font-weight: 700;
+    font-size: 20px;
+  }
+}
