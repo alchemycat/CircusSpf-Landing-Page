@@ -2,7 +2,8 @@
   padding-top: 150px;
   position: relative;
   background-image: url('../../img/intro/intro_bg.png');
-  background-size: contain;
+  background-size: cover;
+  background-position: right 35% bottom 5%;
   background-repeat: no-repeat;
   // background-position: center;
   // &::before {
@@ -43,6 +44,8 @@
   }
   &__item {
     width: 35.96%;
+    font-size: 18px;
+    font-weight: bold;
   }
   &__button {
     margin-top: 36px;

@@ -25,6 +25,58 @@
 }
 
 @media (max-width: 992px) {
+  .fz-48 {
+    font-size: 30px;
+  }
+  .title {
+    font-size: 40px;
+    line-height: 45px;
+  }
+  .intro {
+    &__item {
+      font-size: 15px;
+    }
+  }
+  .partner {
+    &__item {
+      font-size: 17px;
+    }
+  }
+  .services {
+    &__caption {
+      font-size: 22px;
+      min-height: 40px;
+    }
+    &__description {
+      min-height: 220px;
+    }
+  }
+  .advertising {
+    &__list {
+      gap: 21px 60px;
+    }
+  }
+  .proposal {
+    &__caption {
+      font-size: 30px;
+    }
+  }
+  .schema {
+    &__item {
+      width: 48.5%;
+    }
+  }
+  .clients {
+    &__list {
+      gap: 42px 45px;
+    }
+  }
+  .footer {
+    &__left {
+      font-size: 23px;
+      line-height: 30px;
+    }
+  }
 }
 
 @media (max-width: 767px) {
