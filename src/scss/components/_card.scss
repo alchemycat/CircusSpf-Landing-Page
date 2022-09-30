@@ -15,6 +15,10 @@
     text-decoration-line: underline;
     background-color: transparent;
     color: #6360ef;
+    transition: all 0.3s ease;
+    &:hover {
+      color: #1a195d;
+    }
   }
   &__price {
     font-weight: 700;

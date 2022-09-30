@@ -54,6 +54,7 @@
     padding-right: 85px;
     align-self: flex-end;
     margin-top: 26px;
+    transition: all 0.3s ease;
     &::before {
       content: '';
       position: absolute;
@@ -73,6 +74,15 @@
       right: 0px;
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
+    }
+    &:hover {
+      color: #1a195d;
+      &::before {
+        background-color: #1a195d;
+      }
+      &::after {
+        background-color: #1a195d;
+      }
     }
   }
 }
