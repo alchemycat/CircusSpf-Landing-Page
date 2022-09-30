@@ -1,4 +1,27 @@
 @media (max-width: 1200px) {
+  .title {
+    font-size: 50px;
+    line-height: 55px;
+  }
+  .intro {
+    padding-top: 100px;
+    &__list {
+      margin-top: 30px;
+    }
+  }
+  .services {
+    &__description {
+      min-height: 168px;
+    }
+    &__caption {
+      font-size: 30px;
+    }
+  }
+  .footer {
+    &__left {
+      font-size: 25px;
+    }
+  }
 }
 
 @media (max-width: 992px) {
