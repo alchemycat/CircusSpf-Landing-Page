@@ -1,0 +1,10 @@
+.clients {
+  padding-top: 267px;
+  &__list {
+    margin-top: 63px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 42px 59px;
+    align-items: center;
+  }
+}
