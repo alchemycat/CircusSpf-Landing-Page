@@ -4,8 +4,11 @@ import { smoothScrolling } from './functions/smoothScrolling';
 import { changeBG } from './functions/changeBG';
 import './functions/inputmask.min';
 import './functions/just-validate.min';
+import { WOW } from './functions/WOW';
 
 window.addEventListener('DOMContentLoaded', () => {
+  new WOW().init();
+
   changeBG();
 
   window.addEventListener('scroll', changeBG);
@@ -38,7 +41,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   createMask('[type="tel"]', '+7(999)999-99-99');
 
-  //Валидация форм
   function validateForms(selector, rules) {
     new window.JustValidate(selector, {
       rules: rules,
@@ -47,8 +49,6 @@ window.addEventListener('DOMContentLoaded', () => {
         phone: 'Укажите телефон',
       },
       submitHandler: function (form) {
-        console.log(form);
-
         const at = document.querySelector('.alert');
 
         if (at) {
