@@ -1,9 +1,25 @@
 import { burger } from './functions/burger';
+import { closeModal, openModal } from './functions/modal';
 import './functions/inputmask.min';
 import './functions/just-validate.min';
 
 window.addEventListener('DOMContentLoaded', () => {
   burger();
+
+  closeModal('.modal', '.modal__close');
+
+  openModal(
+    '.services__card button',
+    '.modal',
+    '.services__caption',
+    '.services__price'
+  );
+  openModal(
+    '.advertising__card button',
+    '.modal',
+    '.advertising__caption',
+    '.advertising__price'
+  );
 
   function createMask(inputsSelector, mask) {
     let inputs = document.querySelectorAll(inputsSelector);

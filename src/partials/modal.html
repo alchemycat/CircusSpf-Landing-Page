@@ -1,0 +1,36 @@
+<div class="modal">
+  <div class="modal__container">
+    <button class="modal__close">&times;</button>
+    <h2 class="modal__caption">Подтверждение заказа</h2>
+    <form
+      action="#"
+      class="modal__form form"
+      id="order">
+      <div class="modal__wrapper">
+        <label class="modal__label">
+          <input
+            type="text"
+            class="modal__input"
+            name="name"
+            data-validate-field="name"
+            placeholder="Ваше имя" />
+        </label>
+        <label class="modal__label">
+          <input
+            type="tel"
+            class="modal__input"
+            name="phone"
+            data-validate-field="phone"
+            placeholder="+7(___)___-__-__" />
+        </label>
+        <input
+          type="hidden"
+          name="caption" />
+        <input
+          type="hidden"
+          name="price" />
+      </div>
+      <button class="modal__button button">Подтвердить заказ</button>
+    </form>
+  </div>
+</div>
