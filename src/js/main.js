@@ -1,9 +1,17 @@
 import { burger } from './functions/burger';
 import { closeModal, openModal } from './functions/modal';
+import { smoothScrolling } from './functions/smoothScrolling';
+import { changeBG } from './functions/changeBG';
 import './functions/inputmask.min';
 import './functions/just-validate.min';
 
 window.addEventListener('DOMContentLoaded', () => {
+  changeBG();
+
+  window.addEventListener('scroll', changeBG);
+
+  smoothScrolling();
+
   burger();
 
   closeModal('.modal', '.modal__close');
