@@ -80,4 +80,46 @@
 }
 
 @media (max-width: 767px) {
+  .title {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  .partner {
+    &__item {
+      line-height: 20px;
+    }
+  }
+
+  .services {
+    &__card {
+      width: 100%;
+    }
+  }
+
+  .advertising {
+    &__card {
+      width: 100%;
+    }
+  }
+
+  .proposal {
+    &__caption {
+      font-size: 25px;
+      line-height: 30px;
+    }
+  }
+
+  .schema {
+    &__item {
+      width: 100%;
+    }
+  }
+
+  .footer {
+    &__left {
+      font-size: 17px;
+      line-height: 25px;
+    }
+  }
 }
