@@ -2,6 +2,12 @@ export function closeModal(modalSelector, modalCloseSelector) {
   const modal = document.querySelector(modalSelector);
   const close = document.querySelector(modalCloseSelector);
 
+  modal.addEventListener('click', (e) => {
+    if (e.target.getAttribute('class') == 'modal active') {
+      e.target.classList.remove('active');
+    }
+  });
+
   close.addEventListener('click', (e) => {
     e.preventDefault();
     modal.classList.toggle('active');

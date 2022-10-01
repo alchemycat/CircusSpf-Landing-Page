@@ -13,8 +13,9 @@
           alt="support" />
       </div>
       <form
-        action=""
-        class="contact__form">
+        action="#"
+        class="contact__form"
+        id="contact">
         <p class="contact__caption">
           Оставляйте заявку, наш менеджер свяжется с вами и обсудит все детали
           для начала сотрудничества.
@@ -24,12 +25,14 @@
             type="text"
             class="contact__input"
             placeholder="Ваше имя"
+            data-validate-field="name"
         /></label>
         <label class="contact__label"
           ><input
             type="tel"
             class="contact__input"
             placeholder="+7(___)___-__-__"
+            data-validate-field="phone"
         /></label>
         <button class="contact__button">Оставить заявку</button>
       </form>

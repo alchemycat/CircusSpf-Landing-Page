@@ -44,6 +44,19 @@ h1 {
   font-size: 48px;
 }
 
+.js-validate-error-label {
+  position: relative;
+  bottom: -5px;
+  font-size: 14px;
+  color: #b81111;
+}
+
+.js-validate-error-field {
+  border: none !important;
+  border-bottom: 1px solid #b81111 !important;
+  color: #b81111 !important;
+}
+
 // подключения компонентов страницы
 @import './components/button';
 @import './components/header';

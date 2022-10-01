@@ -82,4 +82,14 @@ window.addEventListener('DOMContentLoaded', () => {
     name: { required: true },
     phone: { required: true },
   });
+
+  validateForms('#contact', {
+    name: { required: true },
+    phone: { required: true },
+  });
+
+  validateForms('#order', {
+    name: { required: true },
+    phone: { required: true },
+  });
 });
