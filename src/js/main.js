@@ -11,10 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   changeBG();
 
-  window.addEventListener('scroll', () => {
-    changeBG();
-    console.log(window.scrollY);
-  });
+  window.addEventListener('scroll', changeBG);
 
   smoothScrolling();
 
@@ -53,7 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       submitHandler: function (form) {
         const at = document.querySelector('.alert');
-
+        console.log(form);
         if (at) {
           at.remove();
         }
@@ -94,7 +91,7 @@ window.addEventListener('DOMContentLoaded', () => {
     phone: { required: true },
   });
 
-  validateForms('#contact', {
+  validateForms('#contacts', {
     name: { required: true },
     phone: { required: true },
   });

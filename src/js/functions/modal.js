@@ -33,8 +33,8 @@ export function openModal(
       const captions = document.querySelectorAll(captionSelector);
       const prices = document.querySelectorAll(priceSelector);
 
-      caption.value = captions[i].textContent;
-      price.value = prices[i].textContent;
+      caption.value = captions[i].textContent.trim();
+      price.value = prices[i].textContent.trim();
 
       modal.classList.toggle('active');
     });

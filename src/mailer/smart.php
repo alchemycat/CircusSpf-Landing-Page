@@ -6,15 +6,18 @@ $caption = $_POST['caption'];
 $price = $_POST['price'];
 $type = $_POST['type'];
 
-$target = "vlad.tiw27@gmail.com";
 
+$target = "vlad.tiw27@gmail.com";
+$date = date('l jS \of F Y h:i:s A');
 
 if($type == "order") {
+    $from_details = "Circus SPF [Заказ]";
     $title = "Новый заказ: $caption";
-    $details = "Название: $caption\nЦена: $price\nИмя: $name\nТелефон: $phone";
+    $details = "Название: $caption" . "<br>" . "Цена: $price" . "<br>" . "Имя: $name" . "<br>" . "Телефон: $phone" . "<br>" . "Дата: $date";
 } else {
+    $from_details = "Circus SPF [Звонок]";
     $title = "Запрос звонка: $phone";
-    $details = "Имя: $name\nТелефон: $phone";
+    $details = "Имя: $name" . "<br>" . "Телефон: $phone" . "<br>" . "Дата: $date";
 }
 
 
@@ -43,7 +46,7 @@ $mail->SMTPOptions = array(
 );
 
 
-$mail->setFrom('colacat1927@gmail.com', $type);   // От кого письмо 
+$mail->setFrom('colacat1927@gmail.com', $from_details);   // От кого письмо 
 $mail->addAddress($target);     // Add a recipient
     // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
