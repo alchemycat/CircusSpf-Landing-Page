@@ -68,6 +68,10 @@
     font-size: 20px;
     color: #000;
     margin-right: 42px;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $violet;
+    }
   }
   .burger {
     position: relative;

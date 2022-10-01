@@ -2,17 +2,19 @@
 
 $name = $_POST['name'];
 $phone = $_POST['phone'];
-// $email = $_POST['email'];
-// $target = $_POST['admin_email'];
+$caption = $_POST['caption'];
+$price = $_POST['price'];
+$type = $_POST['type'];
+
 $target = "vlad.tiw27@gmail.com";
 
-// $type = $_POST['type'];
 
-if(isset($_POST['order-details'])) {
-    $title = $_POST['order-title'];
-    $details = $_POST['order-details'];
-} else if(isset($_POST['question'])) {
-    $question = $_POST['question'];
+if($type == "order") {
+    $title = "Новый заказ: $caption";
+    $details = "Название: $caption\nЦена: $price\nИмя: $name\nТелефон: $phone";
+} else {
+    $title = "Запрос звонка: $phone";
+    $details = "Имя: $name\nТелефон: $phone";
 }
 
 
@@ -46,35 +48,9 @@ $mail->addAddress($target);     // Add a recipient
     // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-    $mail->Subject = 'Новый заказ [Test]';
-    $mail->Body    = ' 
-    	Имя: ' . $name . ' <br>
-    	Номер телефона: ' . $phone . '<br>';
 
-// if(isset($_POST['order-details'])) {
-//     $mail->Subject = 'Новый заказ [Perfocom]';
-//     $mail->Body    = ' 
-//     	Имя: ' . $name . ' <br>
-//     	Номер телефона: ' . $phone . '<br>';
-//     	// E-mail: ' . $email . '<br>
-//     	// Название: ' . $title . '<br>
-//     	// Детали: ' . $details . '';
-	
-// } else if(isset($_POST['question'])) {
-    
-//     $mail->Subject = 'Новый вопрос [Perfocom]';
-//     $mail->Body    = ' 
-//     	Имя: ' . $name . ' <br>
-//     	Номер телефона: ' . $phone . '<br>
-//     	E-mail: ' . $email . '<br>
-//     	Вопрос: ' . $question . '';
-// } else if(isset($_POST['call_order'])) {
-//         $mail->Subject = 'Заказ на звонок [Perfocom]';
-//     $mail->Body    = ' 
-//     	Имя: ' . $name . ' <br>
-//     	Номер телефона: ' . $phone . '<br>
-//     	E-mail: ' . $email . '';
-// }
+$mail->Subject = $title;
+$mail->Body = $details;
 
 
 if(!$mail->send()) {
