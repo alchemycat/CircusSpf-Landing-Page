@@ -110,7 +110,7 @@
     transition: all 0.3s ease;
     &.active {
       top: 0;
-      padding-top: 200px;
+      padding-top: 120px;
     }
   }
 
@@ -133,5 +133,8 @@
         color: $violet;
       }
     }
+  }
+  .phone__link {
+    display: none;
   }
 }
