@@ -15,22 +15,25 @@
       сделаем это!
     </p>
     <form
-      action=""
-      class="proposal__form form">
+      action="#"
+      class="proposal__form form"
+      id="apply">
       <div class="proposal__wrapper">
         <label class="proposal__label">
           <input
             type="text"
             class="proposal__input"
             name="name"
+            data-validate-field="name"
             placeholder="Ваше имя" />
         </label>
         <label class="proposal__label">
           <input
-            type="phone"
+            type="tel"
             class="proposal__input"
             name="phone"
-            placeholder="+7 (___) ___-__-__" />
+            data-validate-field="phone"
+            placeholder="+7(___)___-__-__" />
         </label>
       </div>
       <button class="proposal__button">Оставить заявку</button>

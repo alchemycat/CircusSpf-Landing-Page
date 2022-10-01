@@ -1,21 +1,69 @@
-import './functions/validate-forms';
+import { burger } from './functions/burger';
+import './functions/inputmask.min';
+import './functions/just-validate.min';
 
 window.addEventListener('DOMContentLoaded', () => {
-  const burger = document.querySelector('.burger');
-  const menu = document.querySelector('.header__menu');
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    menu.classList.toggle('active');
-  });
+  burger();
 
-  const header = document.querySelector('.header');
+  function createMask(inputsSelector, mask) {
+    let inputs = document.querySelectorAll(inputsSelector);
 
-  window.addEventListener('scroll', () => {
-    console.log(window.scrollY);
-    if (window.scrollY > 50) {
-      header.classList.add('header__bg');
-    } else {
-      header.classList.remove('header__bg');
-    }
+    let im = new Inputmask(mask);
+    im.mask(inputs);
+  }
+
+  createMask('[type="tel"]', '+7(999)999-99-99');
+
+  //Валидация форм
+  function validateForms(selector, rules) {
+    new window.JustValidate(selector, {
+      rules: rules,
+      messages: {
+        name: 'Укажите имя',
+        phone: 'Укажите телефон',
+      },
+      submitHandler: function (form) {
+        console.log(form);
+
+        const at = document.querySelector('.alert');
+
+        if (at) {
+          at.remove();
+        }
+
+        const alertText = document.createElement('div');
+        alertText.classList.add('alert');
+
+        let formData = new FormData(form);
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              alertText.innerText = 'Заявка успешно отправлена.';
+
+              form.append(alertText);
+            } else {
+              alertText.innerText =
+                'Ошибка, не удалось отправить заявку, попробуйте еще раз.';
+              form.append(alertText);
+            }
+            form.reset();
+          }
+          setTimeout(() => {
+            alertText.remove();
+          }, 3000);
+        };
+
+        xhr.open('POST', '/mailer/smart.php', true);
+        xhr.send(formData);
+      },
+    });
+  }
+
+  validateForms('#apply', {
+    name: { required: true },
+    phone: { required: true },
   });
 });
