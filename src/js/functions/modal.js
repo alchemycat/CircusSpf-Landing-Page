@@ -1,16 +1,19 @@
 export function closeModal(modalSelector, modalCloseSelector) {
   const modal = document.querySelector(modalSelector);
   const close = document.querySelector(modalCloseSelector);
+  const body = document.body;
 
   modal.addEventListener('click', (e) => {
     if (e.target.getAttribute('class') == 'modal active') {
       e.target.classList.remove('active');
+      body.style.overflow = 'auto';
     }
   });
 
   close.addEventListener('click', (e) => {
     e.preventDefault();
     modal.classList.toggle('active');
+    body.style.overflow = 'auto';
   });
 }
 
@@ -26,6 +29,8 @@ export function openModal(
   const caption = document.querySelector('[name="caption"');
   const price = document.querySelector('[name="price"]');
 
+  const body = document.body;
+
   triggers.forEach((btn, i) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -37,6 +42,7 @@ export function openModal(
       price.value = prices[i].textContent.trim();
 
       modal.classList.toggle('active');
+      body.style.overflow = 'hidden';
     });
   });
 }
