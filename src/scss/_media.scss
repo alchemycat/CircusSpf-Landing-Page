@@ -38,11 +38,15 @@
     }
   }
   .partner {
+    padding-top: 40px;
+
     &__item {
       font-size: 17px;
     }
   }
   .services {
+    padding-top: 50px;
+
     &__caption {
       font-size: 22px;
       min-height: 40px;
@@ -52,6 +56,8 @@
     }
   }
   .advertising {
+    padding-top: 50px;
+    padding-bottom: 50px;
     &__list {
       gap: 21px 60px;
     }
@@ -62,14 +68,20 @@
     }
   }
   .schema {
+    padding-top: 50px;
+
     &__item {
       width: 48.5%;
     }
   }
   .clients {
+    padding-top: 50px;
     &__list {
       gap: 42px 45px;
     }
+  }
+  .contact {
+    padding: 50px 0px;
   }
   .footer {
     &__left {
@@ -85,9 +97,23 @@
     line-height: 40px;
   }
 
+  .intro {
+    &__list {
+      gap: 45px 70px;
+    }
+  }
+
   .partner {
+    &__list {
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px 0px;
+    }
     &__item {
+      width: 40%;
+      font-size: 18px;
       line-height: 20px;
+      text-align: center;
     }
   }
 
@@ -100,6 +126,10 @@
   .advertising {
     &__card {
       width: 100%;
+      padding: 25px 0px 0px 0px;
+      &::before {
+        left: -10px;
+      }
     }
   }
 
@@ -124,7 +154,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 578px) {
   .title {
     font-size: 25px;
     line-height: 35px;
@@ -144,20 +174,18 @@
     }
   }
   .intro {
-    &__list {
-      gap: 46px 50px;
-    }
     &__item {
       width: 25%;
     }
   }
   .partner {
     &__list {
-      flex-direction: column;
+      align-items: center;
     }
     &__item {
-      font-size: 20px;
-      line-height: 30px;
+      width: 50%;
+      font-size: 15px;
+      padding-left: 30px;
     }
   }
 
@@ -210,8 +238,12 @@
       width: 100%;
     }
     &__contacts {
-      padding-left: 20px;
+      padding-left: 0px;
       gap: 0px 15px;
+      justify-content: center;
+    }
+    &__contact {
+      text-align: center;
     }
   }
 }
