@@ -2,13 +2,10 @@ import { burger } from './functions/burger';
 import { closeModal, openModal } from './functions/modal';
 import { smoothScrolling } from './functions/smoothScrolling';
 import { changeBG } from './functions/changeBG';
-import { WOW } from './functions/WOW';
 import './functions/inputmask.min';
 import './functions/just-validate.min';
 
 window.addEventListener('DOMContentLoaded', () => {
-  new WOW().init();
-
   changeBG();
 
   window.addEventListener('scroll', changeBG);
