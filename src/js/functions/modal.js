@@ -7,6 +7,7 @@ export function closeModal(modalSelector, modalCloseSelector) {
     if (e.target.getAttribute('class') == 'modal active') {
       e.target.classList.remove('active');
       body.style.overflow = 'auto';
+      // body.style.width =
     }
   });
 
