@@ -255,4 +255,14 @@
       text-align: center;
     }
   }
+
+  .modal {
+    &__container {
+      width: 300px;
+      padding: 30px 20px;
+    }
+    &__button {
+      padding: 10px 20px;
+    }
+  }
 }
