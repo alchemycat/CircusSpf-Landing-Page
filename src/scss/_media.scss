@@ -1,4 +1,8 @@
 @media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+
   .title {
     font-size: 50px;
     line-height: 55px;
@@ -25,6 +29,10 @@
 }
 
 @media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+
   .fz-48 {
     font-size: 30px;
   }
@@ -88,16 +96,27 @@
   }
   .footer {
     &__left {
-      font-size: 23px;
+      font-size: 20px;
       line-height: 30px;
     }
   }
 }
 
 @media (max-width: 767px) {
+  .container {
+    max-width: 540px;
+  }
+
   .title {
     font-size: 35px;
     line-height: 40px;
+  }
+
+  .header {
+    &__link {
+      font-size: 20px;
+      padding: 20px 0px;
+    }
   }
 
   .intro {
@@ -149,6 +168,12 @@
     }
   }
 
+  .contact {
+    &__img {
+      display: none;
+    }
+  }
+
   .schema {
     &__item {
       width: 100%;
@@ -156,14 +181,46 @@
   }
 
   .footer {
+    &__wrapper {
+      flex-direction: column;
+    }
     &__left {
-      font-size: 17px;
+      font-size: 18px;
       line-height: 25px;
+      width: 60%;
+      margin: 0 auto;
+      text-align: center;
+      a {
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
+    &__right {
+      margin-top: 0px;
+      width: 100%;
+    }
+    &__text {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    &__contacts {
+      margin-top: 20px;
+      padding-left: 0px;
+      gap: 0px 15px;
+      justify-content: center;
+    }
+    &__contact {
+      font-size: 12px;
+      text-align: center;
     }
   }
 }
 
 @media (max-width: 578px) {
+  .container {
+    max-width: 100%;
+  }
+
   .title {
     font-size: 25px;
     line-height: 35px;
@@ -224,35 +281,6 @@
   .advertising {
     &__description {
       margin-top: 10px;
-    }
-  }
-
-  .contact {
-    &__img {
-      display: none;
-    }
-  }
-
-  .footer {
-    &__wrapper {
-      flex-direction: column;
-    }
-    &__left {
-      width: 100%;
-      text-align: center;
-      font-size: 16px;
-    }
-    &__right {
-      margin-top: 10px;
-      width: 100%;
-    }
-    &__contacts {
-      padding-left: 0px;
-      gap: 0px 15px;
-      justify-content: center;
-    }
-    &__contact {
-      text-align: center;
     }
   }
 

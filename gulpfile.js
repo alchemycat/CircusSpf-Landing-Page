@@ -108,6 +108,7 @@ const styles = () => {
       gulpif(
         isProd,
         cleanCSS({
+          compatibility: 'ie8',
           level: 2,
         })
       )
