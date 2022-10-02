@@ -15,12 +15,13 @@
   }
   .services {
     &__description {
-      min-height: 168px;
+      min-height: 196px;
     }
     &__caption {
       font-size: 30px;
     }
   }
+
   .footer {
     &__left {
       font-size: 25px;
@@ -60,7 +61,7 @@
       min-height: 40px;
     }
     &__description {
-      min-height: 220px;
+      min-height: 280px;
     }
   }
   .clients {
@@ -72,6 +73,7 @@
   .advertising {
     padding-top: 50px;
     padding-bottom: 50px;
+
     &__list {
       gap: 21px 60px;
     }
@@ -180,6 +182,12 @@
     }
   }
 
+  .card {
+    &__description {
+      min-height: 160px;
+    }
+  }
+
   .footer {
     &__wrapper {
       flex-direction: column;
@@ -267,6 +275,10 @@
   }
 
   .card {
+    &__description {
+      min-height: 210px;
+    }
+
     &__price {
       font-size: 16px;
     }
