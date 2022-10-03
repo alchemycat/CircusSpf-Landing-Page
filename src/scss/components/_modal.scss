@@ -15,7 +15,7 @@
     opacity: 1;
   }
   &__container {
-    position: absolute;
+    display: none;
     max-width: 400px;
     min-height: 306px;
     top: 50%;
@@ -23,6 +23,11 @@
     transform: translate(-50%, -50%);
     background-color: #fff;
     padding: 35px;
+    transition: all 0.3s ease;
+    &.active {
+      display: block;
+      position: absolute;
+    }
   }
   &__caption {
     font-size: 20px;

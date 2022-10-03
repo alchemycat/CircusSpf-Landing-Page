@@ -1,5 +1,7 @@
 <div class="modal">
-  <div class="modal__container">
+  <div
+    class="modal__container"
+    id="modal-order">
     <button class="modal__close">&times;</button>
     <h2 class="modal__caption">Подтверждение заказа</h2>
     <form
@@ -35,6 +37,39 @@
           value="order" />
       </div>
       <button class="modal__button button">Подтвердить заказ</button>
+    </form>
+  </div>
+  <div
+    class="modal__container"
+    id="modal-apply">
+    <button class="modal__close">&times;</button>
+    <h2 class="modal__caption">Подтверждение заказа</h2>
+    <form
+      action="#"
+      class="modal__form form">
+      <div class="modal__wrapper">
+        <label class="modal__label">
+          <input
+            type="text"
+            class="modal__input"
+            name="name"
+            data-validate-field="name"
+            placeholder="Ваше имя" />
+        </label>
+        <label class="modal__label">
+          <input
+            type="tel"
+            class="modal__input"
+            name="phone"
+            data-validate-field="phone"
+            placeholder="+7(___)___-__-__" />
+        </label>
+        <input
+          type="hidden"
+          name="type"
+          value="apply" />
+      </div>
+      <button class="modal__button button">Оставить заявку</button>
     </form>
   </div>
 </div>

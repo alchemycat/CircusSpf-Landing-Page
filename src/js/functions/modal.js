@@ -15,25 +15,43 @@ function enableScroll() {
   });
 }
 
-export function closeModal(modalSelector, modalCloseSelector) {
+export function closeModal(
+  overlaySelector,
+  modalsSelector,
+  modalCloseSelector
+) {
   try {
-    const modal = document.querySelector(modalSelector);
-    const close = document.querySelector(modalCloseSelector);
+    const overlay = document.querySelector(overlaySelector);
+    const modals = document.querySelectorAll(modalsSelector);
+    const closeButtons = document.querySelectorAll(modalCloseSelector);
     const body = document.body;
 
-    modal.addEventListener('click', (e) => {
+    overlay.addEventListener('click', (e) => {
       if (e.target.getAttribute('class') == 'modal active') {
         enableScroll();
+
         body.classList.remove('disable-scroll');
+
+        modals.forEach((modal) => {
+          modal.classList.remove('active');
+        });
+
         e.target.classList.remove('active');
       }
     });
 
-    close.addEventListener('click', (e) => {
-      e.preventDefault();
-      enableScroll();
-      modal.classList.toggle('active');
-      body.classList.remove('disable-scroll');
+    closeButtons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        enableScroll();
+        overlay.classList.toggle('active');
+
+        modals.forEach((modal) => {
+          modal.classList.remove('active');
+        });
+
+        body.classList.remove('disable-scroll');
+      });
     });
   } catch (err) {
     console.log(err);
@@ -42,16 +60,23 @@ export function closeModal(modalSelector, modalCloseSelector) {
 
 export function openModal(
   triggersSelector,
+  overlaySelector,
   modalSelector,
-  captionSelector,
-  priceSelector
+  captionSelector = null,
+  priceSelector = null
 ) {
   try {
     const triggers = document.querySelectorAll(triggersSelector);
+    const overlay = document.querySelector(overlaySelector);
     const modal = document.querySelector(modalSelector);
 
-    const caption = document.querySelector('[name="caption"');
-    const price = document.querySelector('[name="price"]');
+    let caption;
+    let price;
+
+    if (captionSelector && priceSelector) {
+      caption = document.querySelector('[name="caption"');
+      price = document.querySelector('[name="price"]');
+    }
 
     const body = document.body;
 
@@ -60,13 +85,16 @@ export function openModal(
         e.preventDefault();
         disableScroll();
 
-        const captions = document.querySelectorAll(captionSelector);
-        const prices = document.querySelectorAll(priceSelector);
+        if (caption && price) {
+          const captions = document.querySelectorAll(captionSelector);
+          const prices = document.querySelectorAll(priceSelector);
 
-        caption.value = captions[i].textContent.trim();
-        price.value = prices[i].textContent.trim();
+          caption.value = captions[i].textContent.trim();
+          price.value = prices[i].textContent.trim();
+        }
 
         body.classList.add('disable-scroll');
+        overlay.classList.toggle('active');
         modal.classList.toggle('active');
       });
     });

@@ -14,17 +14,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
   burger();
 
-  closeModal('.modal', '.modal__close');
+  closeModal('.modal', ['#modal-order', '#modal-apply'], '.modal__close');
+
+  openModal('.intro__button', '.modal', '#modal-apply');
 
   openModal(
     '.services__card button',
     '.modal',
+    '#modal-order',
     '.services__caption',
     '.services__price'
   );
   openModal(
     '.advertising__card button',
     '.modal',
+    '#modal-order',
     '.advertising__caption',
     '.advertising__price'
   );
@@ -47,7 +51,6 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       submitHandler: function (form) {
         const at = document.querySelector('.alert');
-        console.log(form);
         if (at) {
           at.remove();
         }
