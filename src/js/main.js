@@ -100,4 +100,9 @@ window.addEventListener('DOMContentLoaded', () => {
     name: { required: true },
     phone: { required: true },
   });
+
+  validateForms('#call', {
+    name: { required: true },
+    phone: { required: true },
+  });
 });
