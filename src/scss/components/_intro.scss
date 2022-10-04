@@ -1,34 +1,10 @@
 .intro {
   padding-top: 150px;
   position: relative;
-  background-image: url('../../img/intro/intro_bg.png');
+  background-image: url('../../img/intro/intro_bg.jpg');
   background-size: cover;
   background-position: right 35% bottom 5%;
   background-repeat: no-repeat;
-  // background-position: center;
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   background-image: url('../../img/intro/bg-1.jpg');
-  //   background-repeat: no-repeat;
-  //   top: 0px;
-  //   left: -130px;
-  //   width: 100%;
-  //   height: 100%;
-  //   z-index: 0;
-  // }
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   background-image: url('../../img/intro/picture.png');
-  //   background-repeat: no-repeat;
-  //   background-size: contain;
-  //   bottom: 16px;
-  //   right: 5%;
-  //   width: 729px;
-  //   height: 495px;
-  //   // z-index: 0;
-  // }
   &__title {
     position: relative;
     z-index: 2;
