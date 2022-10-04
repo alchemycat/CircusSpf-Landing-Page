@@ -51,12 +51,23 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       submitHandler: function (form) {
         const at = document.querySelector('.alert');
+        const button = document
+          .querySelector(selector)
+          .querySelector('.button');
+
         if (at) {
           at.remove();
         }
 
+        button.setAttribute('disabled', true);
+
         const alertText = document.createElement('div');
         alertText.classList.add('alert');
+
+        const spinner = document.createElement('img');
+        spinner.classList.add('spinner');
+        spinner.src = './img/spinner.gif';
+        form.appendChild(spinner);
 
         let formData = new FormData(form);
 
@@ -65,19 +76,22 @@ window.addEventListener('DOMContentLoaded', () => {
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4) {
             if (xhr.status === 200) {
+              spinner.remove();
+              button.removeAttribute('disabled');
               alertText.innerText = 'Заявка успешно отправлена.';
 
               form.append(alertText);
             } else {
-              alertText.innerText =
-                'Ошибка, не удалось отправить заявку, попробуйте еще раз.';
+              button.removeAttribute('disabled');
+              spinner.remove();
+              alertText.innerText = 'Ошибка, попробуйте еще раз.';
               form.append(alertText);
             }
             form.reset();
           }
           setTimeout(() => {
             alertText.remove();
-          }, 3000);
+          }, 5000);
         };
 
         xhr.open('POST', '/mailer/smart.php', true);

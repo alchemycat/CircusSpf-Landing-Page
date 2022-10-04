@@ -22,6 +22,12 @@
     }
   }
 
+  .modal {
+    &__container {
+      width: 50%;
+    }
+  }
+
   .footer {
     &__left {
       font-size: 25px;
@@ -299,7 +305,7 @@
 
   .modal {
     &__container {
-      width: 300px;
+      width: 90%;
       padding: 30px 20px;
     }
     &__button {
